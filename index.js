@@ -63,6 +63,6 @@ app.use("/api-docs",swaggerUI.serve,swaggerUI.setup(specs))
 app.use("/",apiRouter)
 
 
-app.listen(3000, () => {
+app.listen(8000, () => {
   console.log(`Server is running on port 3000`);
 });
