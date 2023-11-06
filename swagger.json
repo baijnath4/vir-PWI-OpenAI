@@ -1,0 +1,89 @@
+{
+  "openapi": "2.0.0",
+  "info": {
+    "title": "Virtual Agent Power BI API",
+    "version": "1.0.0",
+    "description": "API to connect use Open AI with Virtual Aggent"
+  },
+  "paths": {
+    "/getData": {
+      "get": {
+        "summary": "Table Data",
+        "responses": {
+          "200": {
+            "description": "Server Informaiton",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/askQuestion": {
+      "post": {
+        "summary": "Get the response from table using OPenAI",
+        "tags": [
+          "VirutalAgentAPI"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "question": {
+                    "type": "string",
+                    "description": "The question to be sent"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Response from Open API",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "VirutalAgentAPI": {
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Enter Name"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "VirutalAgentAPI",
+      "description": "API to connect powerBI and Virutal aggent"
+    }
+  ]
+}
