@@ -21,7 +21,7 @@ const jsYaml = require('js-yaml');
 
 const options = {
     definition:{
-        openapi:"2.0.0",
+        openapi:"3.0.0",
         info:{
             title:"Virtual Agent Power BI API",
             version:"1.0.0",

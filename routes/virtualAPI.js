@@ -114,7 +114,7 @@ router.post('/askQuestion',(req,res)=>{
     console.log(req.body['Question']);
     const ques = req.body['Question']
 
-    const pythonScriptPath = path.join(__dirname,'../GenAI/genAI.py')
+    const pythonScriptPath = path.join(__dirname,'../GenAI/IBM_GenAI.py')
     const pythonProcess = spawn('python', [pythonScriptPath,ques]);
 
     let data = ''
@@ -126,7 +126,9 @@ router.post('/askQuestion',(req,res)=>{
     pythonProcess.on('close', (code) => {
         console.log(`Python Script Exited with Code: ${code}`);
         // Send the collected data as the response when the Python script is done
-        res.json({question:`Your question ${ques}`,data});
+        let jsonData = JSON.parse(data);
+        res.json({ question: `Your question ${ques}`, data: jsonData });
+        
     });
    
 })
